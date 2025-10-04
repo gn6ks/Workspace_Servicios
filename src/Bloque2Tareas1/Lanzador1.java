@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lanzador1 {
-    public static void ejecutar(int num1, int num2, String fichero) {
+    public static void ejecutar(int num1, int num2) {
         try {
             String javaHome = System.getProperty("java.home");
             String javaBin = javaHome + File.separator + "bin" + File.separator + "java";
@@ -27,7 +27,7 @@ public class Lanzador1 {
     }
 
     public static void main(String[] args) {
-        ejecutar(1, 50, "resultado1");
-        ejecutar(50, 100, "resultado2");
+        ejecutar(1, 50);
+        ejecutar(50, 100);
     }
 }
