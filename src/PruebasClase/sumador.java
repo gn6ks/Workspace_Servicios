@@ -9,10 +9,9 @@ public class sumador {
         return res;
     }
 
-    public static void main(String [] args){
+    public static void main(String[] args) {
         int num1 = Integer.parseInt(args[0]);
         int num2 = Integer.parseInt(args[1]);
-        System.out.println(suma(num1,num2));
+        System.out.println(suma(num1, num2));
     }
-
 }
