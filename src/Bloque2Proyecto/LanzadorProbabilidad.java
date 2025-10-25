@@ -21,7 +21,6 @@ public class LanzadorProbabilidad {
             command.add(linea);
             ProcessBuilder builder = new ProcessBuilder(command);
             Process process = builder.inheritIO().start(); //heredo la terminal de probabilidadColision para mostrar mensajes
-            process.waitFor(); //esto lo he encontrado y es para dejar que se ejecuten todos los procesos
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,23 +29,18 @@ public class LanzadorProbabilidad {
     public static void main(String[] args) {
         //pasar el archivo a leer por parametro, hace que el programa dependa del usuario sin cambiar el codigo
         String archivoLeer = args[0];
-        long puntoPartidaTiempo = 0;
-        long puntoFinalTiempo = 0;
         try {
-            puntoPartidaTiempo = System.currentTimeMillis();
             BufferedReader br = new BufferedReader(new FileReader(archivoLeer));
             String linea;
             while ((linea = br.readLine()) != null) {
                 ejecutar(linea); // Lanzar un proceso por linea
             }
-            puntoFinalTiempo = System.currentTimeMillis();
             br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        System.out.println("Todos los procesos han terminado.");
-        System.out.println("Tiempo de ejecución: " + (puntoFinalTiempo - puntoPartidaTiempo) + " milisegundos");
-        System.out.println("Tiempo medio de ejecución por proceso: " + ((puntoFinalTiempo - puntoPartidaTiempo) / 24)+ " milisegundos");
+//        System.out.println("Todos los procesos han terminado.");
+//        System.out.println("Tiempo de ejecución: " + (puntoFinalTiempo - puntoPartidaTiempo) + " milisegundos");
+//        System.out.println("Tiempo medio de ejecución por proceso: " + ((puntoFinalTiempo - puntoPartidaTiempo) / 24) + " milisegundos");
     }
 }
